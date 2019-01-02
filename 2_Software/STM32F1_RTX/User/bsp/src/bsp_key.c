@@ -344,18 +344,18 @@ static void bsp_InitKeyVar(void)
     s_tBtn[KID_JOY_R].RepeatSpeed = 5;  /* 每隔50ms自动发送键值 */
 
     /* 判断按键按下的函数 */
-    s_tBtn[0].IsKeyDownFunc = IsKeyDown1;
-    s_tBtn[1].IsKeyDownFunc = IsKeyDown2;
-    s_tBtn[2].IsKeyDownFunc = IsKeyDown3;
-    s_tBtn[3].IsKeyDownFunc = IsKeyDown4;
-    s_tBtn[4].IsKeyDownFunc = IsKeyDown5;
-    s_tBtn[5].IsKeyDownFunc = IsKeyDown6;
-    s_tBtn[6].IsKeyDownFunc = IsKeyDown7;
-    s_tBtn[7].IsKeyDownFunc = IsKeyDown8;
+//    s_tBtn[0].IsKeyDownFunc = IsKeyDown1;
+//    s_tBtn[1].IsKeyDownFunc = IsKeyDown2;
+//    s_tBtn[2].IsKeyDownFunc = IsKeyDown3;
+//    s_tBtn[3].IsKeyDownFunc = IsKeyDown4;
+//    s_tBtn[4].IsKeyDownFunc = IsKeyDown5;
+//    s_tBtn[5].IsKeyDownFunc = IsKeyDown6;
+//    s_tBtn[6].IsKeyDownFunc = IsKeyDown7;
+//    s_tBtn[7].IsKeyDownFunc = IsKeyDown8;
 
-    /* 组合键 */
-    s_tBtn[8].IsKeyDownFunc = IsKeyDown9;
-    s_tBtn[9].IsKeyDownFunc = IsKeyDown10;
+//    /* 组合键 */
+//    s_tBtn[8].IsKeyDownFunc = IsKeyDown9;
+//    s_tBtn[9].IsKeyDownFunc = IsKeyDown10;
 }
 
 /*
@@ -479,4 +479,3 @@ void bsp_KeyScan(void)
 }
 
 /***************************** 安富莱电子 www.armfly.com (END OF FILE) *********************************/
-               

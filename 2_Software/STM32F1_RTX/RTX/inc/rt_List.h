@@ -23,16 +23,16 @@ extern struct OS_XCB os_rdy;
 extern struct OS_XCB os_dly;
 
 /* Functions */
-extern void  rt_put_prio(P_XCB p_CB, P_TCB p_task);
-extern P_TCB rt_get_first(P_XCB p_CB);
-extern void  rt_put_rdy_first(P_TCB p_task);
-extern P_TCB rt_get_same_rdy_prio(void);
-extern void  rt_resort_prio(P_TCB p_task);
-extern void  rt_put_dly(P_TCB p_task, U16 delay);
-extern void  rt_dec_dly(void);
-extern void  rt_rmv_list(P_TCB p_task);
-extern void  rt_rmv_dly(P_TCB p_task);
-extern void  rt_psq_enq(OS_ID entry, U32 arg);
+extern void  rt_put_prio      (P_XCB p_CB, P_TCB p_task);
+extern P_TCB rt_get_first     (P_XCB p_CB);
+extern void  rt_put_rdy_first (P_TCB p_task);
+extern P_TCB rt_get_same_rdy_prio (void);
+extern void  rt_resort_prio   (P_TCB p_task);
+extern void  rt_put_dly       (P_TCB p_task, U16 delay);
+extern void  rt_dec_dly       (void);
+extern void  rt_rmv_list      (P_TCB p_task);
+extern void  rt_rmv_dly       (P_TCB p_task);
+extern void  rt_psq_enq       (OS_ID entry, U32 arg);
 
 /* This is a fast macro generating in-line code */
 #define rt_rdy_prio(void) (os_rdy.p_lnk->prio)

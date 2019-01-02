@@ -4,7 +4,7 @@
   * @author  MCD Application Team
   * @version V3.6.1
   * @date    05-March-2012
-  * @brief   This file contains all the functions prototypes for the GPIO
+  * @brief   This file contains all the functions prototypes for the GPIO 
   *          firmware library.
   ******************************************************************************
   * @attention
@@ -17,8 +17,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
+  * Unless required by applicable law or agreed to in writing, software 
+  * distributed under the License is distributed on an "AS IS" BASIS, 
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -31,7 +31,7 @@
 #define __STM32F10x_GPIO_H
 
 #ifdef __cplusplus
-extern "C" {
+ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -56,67 +56,65 @@ extern "C" {
                                     ((PERIPH) == GPIOE) || \
                                     ((PERIPH) == GPIOF) || \
                                     ((PERIPH) == GPIOG))
-
-/**
-  * @brief  Output Maximum frequency selection
+                                     
+/** 
+  * @brief  Output Maximum frequency selection  
   */
 
 typedef enum
-{
-    GPIO_Speed_10MHz = 1,
-    GPIO_Speed_2MHz,
-    GPIO_Speed_50MHz
-} GPIOSpeed_TypeDef;
+{ 
+  GPIO_Speed_10MHz = 1,
+  GPIO_Speed_2MHz, 
+  GPIO_Speed_50MHz
+}GPIOSpeed_TypeDef;
 #define IS_GPIO_SPEED(SPEED) (((SPEED) == GPIO_Speed_10MHz) || ((SPEED) == GPIO_Speed_2MHz) || \
                               ((SPEED) == GPIO_Speed_50MHz))
 
-/**
-  * @brief  Configuration Mode enumeration
+/** 
+  * @brief  Configuration Mode enumeration  
   */
 
 typedef enum
-{
-    GPIO_Mode_AIN = 0x0,
-    GPIO_Mode_IN_FLOATING = 0x04,
-    GPIO_Mode_IPD = 0x28,
-    GPIO_Mode_IPU = 0x48,
-    GPIO_Mode_Out_OD = 0x14,
-    GPIO_Mode_Out_PP = 0x10,
-    GPIO_Mode_AF_OD = 0x1C,
-    GPIO_Mode_AF_PP = 0x18
-} GPIOMode_TypeDef;
+{ GPIO_Mode_AIN = 0x0,
+  GPIO_Mode_IN_FLOATING = 0x04,
+  GPIO_Mode_IPD = 0x28,
+  GPIO_Mode_IPU = 0x48,
+  GPIO_Mode_Out_OD = 0x14,
+  GPIO_Mode_Out_PP = 0x10,
+  GPIO_Mode_AF_OD = 0x1C,
+  GPIO_Mode_AF_PP = 0x18
+}GPIOMode_TypeDef;
 
 #define IS_GPIO_MODE(MODE) (((MODE) == GPIO_Mode_AIN) || ((MODE) == GPIO_Mode_IN_FLOATING) || \
                             ((MODE) == GPIO_Mode_IPD) || ((MODE) == GPIO_Mode_IPU) || \
                             ((MODE) == GPIO_Mode_Out_OD) || ((MODE) == GPIO_Mode_Out_PP) || \
                             ((MODE) == GPIO_Mode_AF_OD) || ((MODE) == GPIO_Mode_AF_PP))
 
-/**
-  * @brief  GPIO Init structure definition
+/** 
+  * @brief  GPIO Init structure definition  
   */
 
 typedef struct
 {
-    uint16_t GPIO_Pin;             /*!< Specifies the GPIO pins to be configured.
+  uint16_t GPIO_Pin;             /*!< Specifies the GPIO pins to be configured.
                                       This parameter can be any value of @ref GPIO_pins_define */
 
-    GPIOSpeed_TypeDef GPIO_Speed;  /*!< Specifies the speed for the selected pins.
+  GPIOSpeed_TypeDef GPIO_Speed;  /*!< Specifies the speed for the selected pins.
                                       This parameter can be a value of @ref GPIOSpeed_TypeDef */
 
-    GPIOMode_TypeDef GPIO_Mode;    /*!< Specifies the operating mode for the selected pins.
+  GPIOMode_TypeDef GPIO_Mode;    /*!< Specifies the operating mode for the selected pins.
                                       This parameter can be a value of @ref GPIOMode_TypeDef */
-} GPIO_InitTypeDef;
+}GPIO_InitTypeDef;
 
 
-/**
-  * @brief  Bit_SET and Bit_RESET enumeration
+/** 
+  * @brief  Bit_SET and Bit_RESET enumeration  
   */
 
 typedef enum
-{
-    Bit_RESET = 0,
-    Bit_SET
-} BitAction;
+{ Bit_RESET = 0,
+  Bit_SET
+}BitAction;
 
 #define IS_GPIO_BIT_ACTION(ACTION) (((ACTION) == Bit_RESET) || ((ACTION) == Bit_SET))
 
@@ -128,7 +126,7 @@ typedef enum
   * @{
   */
 
-/** @defgroup GPIO_pins_define
+/** @defgroup GPIO_pins_define 
   * @{
   */
 
@@ -173,7 +171,7 @@ typedef enum
   * @}
   */
 
-/** @defgroup GPIO_Remap_define
+/** @defgroup GPIO_Remap_define 
   * @{
   */
 
@@ -226,7 +224,7 @@ typedef enum
 #define GPIO_Remap_TIM67_DAC_DMA    ((uint32_t)0x80000800)  /*!< TIM6/TIM7 and DAC DMA requests remapping (only for High density Value line devices) */
 #define GPIO_Remap_TIM12            ((uint32_t)0x80001000)  /*!< TIM12 Alternate Function mapping (only for High density Value line devices) */
 #define GPIO_Remap_MISC             ((uint32_t)0x80002000)  /*!< Miscellaneous Remap (DMA2 Channel5 Position and DAC Trigger remapping, 
-                                                                 only for High density Value line devices) */
+                                                                 only for High density Value line devices) */                                                       
 
 #define IS_GPIO_REMAP(REMAP) (((REMAP) == GPIO_Remap_SPI1) || ((REMAP) == GPIO_Remap_I2C1) || \
                               ((REMAP) == GPIO_Remap_USART1) || ((REMAP) == GPIO_Remap_USART2) || \
@@ -250,12 +248,12 @@ typedef enum
                               ((REMAP) == GPIO_Remap_TIM13) || ((REMAP) == GPIO_Remap_TIM14) || \
                               ((REMAP) == GPIO_Remap_FSMC_NADV) || ((REMAP) == GPIO_Remap_TIM67_DAC_DMA) || \
                               ((REMAP) == GPIO_Remap_TIM12) || ((REMAP) == GPIO_Remap_MISC))
-
+                              
 /**
   * @}
-  */
+  */ 
 
-/** @defgroup GPIO_Port_Sources
+/** @defgroup GPIO_Port_Sources 
   * @{
   */
 
@@ -284,7 +282,7 @@ typedef enum
   * @}
   */
 
-/** @defgroup GPIO_Pin_sources
+/** @defgroup GPIO_Pin_sources 
   * @{
   */
 
@@ -326,18 +324,18 @@ typedef enum
   * @}
   */
 
-/** @defgroup Ethernet_Media_Interface
+/** @defgroup Ethernet_Media_Interface 
   * @{
-  */
-#define GPIO_ETH_MediaInterface_MII    ((u32)0x00000000)
-#define GPIO_ETH_MediaInterface_RMII   ((u32)0x00000001)
+  */ 
+#define GPIO_ETH_MediaInterface_MII    ((u32)0x00000000) 
+#define GPIO_ETH_MediaInterface_RMII   ((u32)0x00000001)                                       
 
 #define IS_GPIO_ETH_MEDIA_INTERFACE(INTERFACE) (((INTERFACE) == GPIO_ETH_MediaInterface_MII) || \
                                                 ((INTERFACE) == GPIO_ETH_MediaInterface_RMII))
 
 /**
   * @}
-  */
+  */                                                
 /**
   * @}
   */

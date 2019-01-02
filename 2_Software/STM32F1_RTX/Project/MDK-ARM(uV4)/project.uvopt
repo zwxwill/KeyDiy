@@ -435,10 +435,10 @@
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>0</ColumnNumber>
+      <ColumnNumber>2</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>441</TopLine>
-      <CurrentLine>65</CurrentLine>
+      <TopLine>336</TopLine>
+      <CurrentLine>347</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\User\bsp\src\bsp_key.c</PathWithFileName>
       <FilenameWithoutPath>bsp_key.c</FilenameWithoutPath>
@@ -565,8 +565,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_bkp.c</PathWithFileName>
       <FilenameWithoutPath>stm32f10x_bkp.c</FilenameWithoutPath>
@@ -757,8 +757,8 @@
       <Focus>0</Focus>
       <ColumnNumber>0</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>0</TopLine>
-      <CurrentLine>0</CurrentLine>
+      <TopLine>1</TopLine>
+      <CurrentLine>1</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>..\..\RTX\src\rt_Mailbox.c</PathWithFileName>
       <FilenameWithoutPath>rt_Mailbox.c</FilenameWithoutPath>
