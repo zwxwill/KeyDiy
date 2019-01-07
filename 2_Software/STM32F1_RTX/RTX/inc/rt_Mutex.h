@@ -10,9 +10,9 @@
  *---------------------------------------------------------------------------*/
 
 /* Functions */
-extern void      rt_mut_init    (OS_ID mutex);
-extern OS_RESULT rt_mut_release (OS_ID mutex);
-extern OS_RESULT rt_mut_wait    (OS_ID mutex, U16 timeout);
+extern void      rt_mut_init(OS_ID mutex);
+extern OS_RESULT rt_mut_release(OS_ID mutex);
+extern OS_RESULT rt_mut_wait(OS_ID mutex, U16 timeout);
 
 /*----------------------------------------------------------------------------
  * end of file

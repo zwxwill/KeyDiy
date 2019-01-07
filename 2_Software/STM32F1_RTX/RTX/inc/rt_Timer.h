@@ -13,9 +13,9 @@
 extern struct OS_XTMR os_tmr;
 
 /* Functions */
-extern void  rt_tmr_tick   (void);
-extern OS_ID rt_tmr_create (U16 tcnt, U16 info);
-extern OS_ID rt_tmr_kill   (OS_ID timer);
+extern void  rt_tmr_tick(void);
+extern OS_ID rt_tmr_create(U16 tcnt, U16 info);
+extern OS_ID rt_tmr_kill(OS_ID timer);
 
 /*----------------------------------------------------------------------------
  * end of file

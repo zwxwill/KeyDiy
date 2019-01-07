@@ -42,11 +42,11 @@ extern U16 const mp_tmr_size;
 extern U8  const os_fifo_size;
 
 /* Functions */
-extern void os_idle_demon   (void);
-extern int  os_tick_init    (void);
-extern void os_tick_irqack  (void);
-extern void os_tmr_call     (U16  info);
-extern void os_error        (U32 err_code);
+extern void os_idle_demon(void);
+extern int  os_tick_init(void);
+extern void os_tick_irqack(void);
+extern void os_tmr_call(U16  info);
+extern void os_error(U32 err_code);
 
 /*----------------------------------------------------------------------------
  * end of file

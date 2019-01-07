@@ -16,9 +16,9 @@
 #define MAGIC_WORD      0xE25A2EA5
 
 #if ((__TARGET_ARCH_7_M || __TARGET_ARCH_7E_M) && !NO_EXCLUSIVE_ACCESS)
- #define __USE_EXCLUSIVE_ACCESS
+#define __USE_EXCLUSIVE_ACCESS
 #else
- #undef  __USE_EXCLUSIVE_ACCESS
+#undef  __USE_EXCLUSIVE_ACCESS
 #endif
 
 /* NVIC registers */
@@ -73,72 +73,89 @@ extern BIT dbg_msg;
 
 /* Functions */
 #ifdef __USE_EXCLUSIVE_ACCESS
- #define rt_inc(p)     while(__strex((__ldrex(p)+1),p))
- #define rt_dec(p)     while(__strex((__ldrex(p)-1),p))
+#define rt_inc(p)     while(__strex((__ldrex(p)+1),p))
+#define rt_dec(p)     while(__strex((__ldrex(p)-1),p))
 #else
- #define rt_inc(p)     __disable_irq();(*p)++;__enable_irq();
- #define rt_dec(p)     __disable_irq();(*p)--;__enable_irq();
+#define rt_inc(p)     __disable_irq();(*p)++;__enable_irq();
+#define rt_dec(p)     __disable_irq();(*p)--;__enable_irq();
 #endif
 
-__inline U32 rt_inc_qi (U32 size, U8 *count, U8 *first) {
-  U32 cnt,c2;
+__inline U32 rt_inc_qi(U32 size, U8 *count, U8 *first)
+{
+    U32 cnt,c2;
 #ifdef __USE_EXCLUSIVE_ACCESS
-  do {
-    if ((cnt = __ldrex(count)) == size) {
-      __clrex();
-      return (cnt); }
-  } while (__strex(cnt+1, count));
-  do {
-    c2 = (cnt = __ldrex(first)) + 1;
-    if (c2 == size) c2 = 0;
-  } while (__strex(c2, first));
+    do
+    {
+        if((cnt = __ldrex(count)) == size)
+        {
+            __clrex();
+            return (cnt);
+        }
+    }
+    while(__strex(cnt+1, count));
+    do
+    {
+        c2 = (cnt = __ldrex(first)) + 1;
+        if(c2 == size)
+        {
+            c2 = 0;
+        }
+    }
+    while(__strex(c2, first));
 #else
-  __disable_irq();
-  if ((cnt = *count) < size) {
-    *count = cnt+1;
-    c2 = (cnt = *first) + 1;
-    if (c2 == size) c2 = 0;
-    *first = c2; 
-  }
-  __enable_irq ();
+    __disable_irq();
+    if((cnt = *count) < size)
+    {
+        *count = cnt+1;
+        c2 = (cnt = *first) + 1;
+        if(c2 == size)
+        {
+            c2 = 0;
+        }
+        *first = c2;
+    }
+    __enable_irq();
 #endif
-  return (cnt);
+    return (cnt);
 }
 
-__inline void rt_systick_init (void) {
-  NVIC_ST_RELOAD  = os_trv;
-  NVIC_ST_CURRENT = 0;
-  NVIC_ST_CTRL    = 0x0007;
-  NVIC_SYS_PRI3  |= 0xFF000000;
+__inline void rt_systick_init(void)
+{
+    NVIC_ST_RELOAD  = os_trv;
+    NVIC_ST_CURRENT = 0;
+    NVIC_ST_CTRL    = 0x0007;
+    NVIC_SYS_PRI3  |= 0xFF000000;
 }
 
-__inline void rt_svc_init (void) {
+__inline void rt_svc_init(void)
+{
 #if !(__TARGET_ARCH_6S_M)
-  int sh,prigroup;
+    int sh,prigroup;
 #endif
-  NVIC_SYS_PRI3 |= 0x00FF0000;
+    NVIC_SYS_PRI3 |= 0x00FF0000;
 #if (__TARGET_ARCH_6S_M)
-  NVIC_SYS_PRI2 |= (NVIC_SYS_PRI3<<(8+1)) & 0xFC000000;
+    NVIC_SYS_PRI2 |= (NVIC_SYS_PRI3<<(8+1)) & 0xFC000000;
 #else
-  sh       = 8 - __clz (~((NVIC_SYS_PRI3 << 8) & 0xFF000000));
-  prigroup = ((NVIC_AIR_CTRL >> 8) & 0x07);
-  if (prigroup >= sh) {
-    sh = prigroup + 1;
-  }
-  NVIC_SYS_PRI2 = ((0xFEFFFFFF << sh) & 0xFF000000) | (NVIC_SYS_PRI2 & 0x00FFFFFF);
+    sh       = 8 - __clz(~((NVIC_SYS_PRI3 << 8) & 0xFF000000));
+    prigroup = ((NVIC_AIR_CTRL >> 8) & 0x07);
+    if(prigroup >= sh)
+    {
+        sh = prigroup + 1;
+    }
+    NVIC_SYS_PRI2 = ((0xFEFFFFFF << sh) & 0xFF000000) | (NVIC_SYS_PRI2 & 0x00FFFFFF);
 #endif
 }
 
-extern void rt_init_stack (P_TCB p_TCB, FUNCP task_body);
-extern void rt_set_PSP (U32 stack);
-extern U32  rt_get_PSP (void);
-extern void os_set_env (void);
-extern void *_alloc_box (void *box_mem);
-extern int  _free_box (void *box_mem, void *box);
+extern void rt_init_stack(P_TCB p_TCB, FUNCP task_body);
+extern void rt_set_PSP(U32 stack);
+extern U32  rt_get_PSP(void);
+extern void os_set_env(void);
+extern void *_alloc_box(void *box_mem);
+extern int  _free_box(void *box_mem, void *box);
 
-extern void dbg_init (void);
-extern void dbg_task_notify (P_TCB p_tcb, BOOL create);
-extern void dbg_task_switch (U32 task_id);
+extern void dbg_init(void);
+extern void dbg_task_notify(P_TCB p_tcb, BOOL create);
+extern void dbg_task_switch(U32 task_id);
 
 #ifdef DBG_MSG
 #define DBG_INIT() dbg_init()

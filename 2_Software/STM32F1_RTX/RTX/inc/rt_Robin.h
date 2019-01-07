@@ -13,8 +13,8 @@
 extern struct OS_ROBIN os_robin;
 
 /* Functions */
-extern void rt_init_robin (void);
-extern void rt_chk_robin  (void);
+extern void rt_init_robin(void);
+extern void rt_chk_robin(void);
 
 /*----------------------------------------------------------------------------
  * end of file

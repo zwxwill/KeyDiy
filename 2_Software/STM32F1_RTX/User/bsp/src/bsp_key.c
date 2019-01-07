@@ -248,53 +248,53 @@ static void bsp_InitKeyHard(void)
     GPIO_Init(GPIO_PORT_ROW1, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_ROW2;
-    GPIO_Init(GPIO_PORT_ROW2, &GPIO_InitStructure); 
+    GPIO_Init(GPIO_PORT_ROW2, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_ROW3;
     GPIO_Init(GPIO_PORT_ROW3, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_ROW4;
-    GPIO_Init(GPIO_PORT_ROW4, &GPIO_InitStructure); 
+    GPIO_Init(GPIO_PORT_ROW4, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_ROW5;
     GPIO_Init(GPIO_PORT_ROW5, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_ROW6;
-    GPIO_Init(GPIO_PORT_ROW6, &GPIO_InitStructure); 
+    GPIO_Init(GPIO_PORT_ROW6, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_ROW7;
     GPIO_Init(GPIO_PORT_ROW7, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_ROW8;
-    GPIO_Init(GPIO_PORT_ROW8, &GPIO_InitStructure); 
-    
+    GPIO_Init(GPIO_PORT_ROW8, &GPIO_InitStructure);
+
     /* column */
     GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
     GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;   /* Pull up input */
-    
+
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL1;
     GPIO_Init(GPIO_PORT_COL1, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL2;
-    GPIO_Init(GPIO_PORT_COL2, &GPIO_InitStructure); 
+    GPIO_Init(GPIO_PORT_COL2, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL3;
     GPIO_Init(GPIO_PORT_COL3, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL4;
-    GPIO_Init(GPIO_PORT_COL4, &GPIO_InitStructure); 
+    GPIO_Init(GPIO_PORT_COL4, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL5;
     GPIO_Init(GPIO_PORT_COL5, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL6;
-    GPIO_Init(GPIO_PORT_COL6, &GPIO_InitStructure); 
+    GPIO_Init(GPIO_PORT_COL6, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL7;
     GPIO_Init(GPIO_PORT_COL7, &GPIO_InitStructure);
 
     GPIO_InitStructure.GPIO_Pin = GPIO_PIN_COL8;
-    GPIO_Init(GPIO_PORT_COL8, &GPIO_InitStructure); 
+    GPIO_Init(GPIO_PORT_COL8, &GPIO_InitStructure);
 
 
 }
@@ -456,7 +456,7 @@ static void bsp_DetectKey(uint8_t i)
 void test(void)
 {
     GPIO_Write(GPIO_PORT_ROW, 0xFE);
-    
+
 }
 
 

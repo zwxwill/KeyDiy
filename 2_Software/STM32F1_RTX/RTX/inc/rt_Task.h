@@ -38,15 +38,15 @@ extern struct OS_TSK os_tsk;
 extern struct OS_TCB os_idle_TCB;
 
 /* Functions */
-extern void      rt_switch_req (P_TCB p_new);
-extern void      rt_dispatch   (P_TCB next_TCB);
-extern void      rt_block      (U16 timeout, U8 block_state);
-extern void      rt_tsk_pass   (void);
-extern OS_TID    rt_tsk_self   (void);
-extern OS_RESULT rt_tsk_prio   (OS_TID task_id, U8 new_prio);
-extern OS_TID    rt_tsk_create (FUNCP task, U32 prio_stksz, void *stk, void *argv);
-extern OS_RESULT rt_tsk_delete (OS_TID task_id);
-extern void      rt_sys_init   (FUNCP first_task, U32 prio_stksz, void *stk);
+extern void      rt_switch_req(P_TCB p_new);
+extern void      rt_dispatch(P_TCB next_TCB);
+extern void      rt_block(U16 timeout, U8 block_state);
+extern void      rt_tsk_pass(void);
+extern OS_TID    rt_tsk_self(void);
+extern OS_RESULT rt_tsk_prio(OS_TID task_id, U8 new_prio);
+extern OS_TID    rt_tsk_create(FUNCP task, U32 prio_stksz, void *stk, void *argv);
+extern OS_RESULT rt_tsk_delete(OS_TID task_id);
+extern void      rt_sys_init(FUNCP first_task, U32 prio_stksz, void *stk);
 
 /*----------------------------------------------------------------------------
  * end of file
